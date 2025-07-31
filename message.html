@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>จดหมายรัก 💌</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kanit', sans-serif;
+      background: linear-gradient(135deg, #ffe4ec, #fff4f9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .letter-center {
+      text-align: center;
+    }
+
+    .envelope {
+      width: 220px;
+      max-width: 40vw;
+      cursor: pointer;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      animation: float 2.5s ease-in-out infinite;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    .letter-message {
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      max-width: 90vw;
+      margin-top: 20px;
+    }
+
+    .letter-message.show {
+      opacity: 1;
+    }
+
+    .letter-message h1 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #c2185b;
+      margin-bottom: 0.5em;
+    }
+
+    .letter-message p {
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      color: #6d214f;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-12px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="letter-center">
+    <img id="envelopeImage" src="images/ChatGPT Image 1 ส.ค. 2568 00_49_23.png" alt="ซองจดหมาย" class="envelope" onclick="openLetter()">
+    
+    <div id="loveMessage" class="letter-message hidden">
+      <h1>รักบีบี๋ที่สุดในโลกเลยนะ 💖</h1>
+      <p>ทุกวันที่มีบีบี๋คือวันที่ดีที่สุดในชีวิตเค้า 💫</p>
+    </div>
+  </div>
+
+  <script>
+    function openLetter() {
+      const img = document.getElementById("envelopeImage");
+      const message = document.getElementById("loveMessage");
+
+      img.classList.add("fade-out");
+
+      setTimeout(() => {
+        img.classList.add("hidden");
+        message.classList.remove("hidden");
+        message.classList.add("show");
+      }, 300);
+    }
+  </script>
+</body>
+</html>

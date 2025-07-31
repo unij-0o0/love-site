@@ -1,0 +1,329 @@
+body {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #fff1f8);
+  color: #333;
+}
+
+/* 🩷 LOVE PAGE SCOPE */
+.love-page {
+  display: flex;
+  height: 100vh;
+}
+
+.love-page .left {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.love-page .glass {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+}
+
+.love-page .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(#f8bbd0 0%, #fce4ec 100%);
+}
+
+.love-page .photo {
+  width: 70%;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255, 105, 180, 0.4);
+}
+
+.love-page .title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  color: #c2185b;
+}
+
+.love-page .subtitle {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #6d6d6d;
+}
+
+.love-page input {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 10px;
+  border: none;
+  width: 80%;
+  max-width: 300px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+.love-page button {
+  margin-top: 15px;
+  padding: 12px 20px;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  border-radius: 10px;
+  border: none;
+  color: white;
+  background: linear-gradient(to right, #ec407a, #d81b60);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(220, 20, 60, 0.4);
+  transition: transform 0.2s;
+}
+
+.love-page button:hover {
+  transform: scale(1.05);
+}
+
+/* 💌 เกมจับคู่ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  perspective: 800px;
+  display: inline-block;
+}
+
+.inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .inner {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.front {
+  background-color: #f8bbd0;
+}
+
+.back {
+  background-size: cover;
+  background-position: center;
+  transform: rotateY(180deg);
+}
+
+.card.matched {
+  animation: explode 0.5s ease forwards;
+}
+
+@keyframes explode {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.4) rotate(30deg); opacity: 0; }
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+/* 💌 หน้าข้อความ */
+.love-message {
+  padding: 100px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #ad1457;
+}
+
+.letter-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.envelope {
+  width: 240px;
+  cursor: pointer;
+  transition: opacity 0.6s ease, transform 0.3s;
+  animation: float 2s ease-in-out infinite;
+}
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.letter-message {
+  margin-top: 20px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  color: #ad1457;
+  transition: opacity 0.5s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+
+.memory-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;    /* ✅ Center แนวตั้ง */
+  align-items: center;        /* ✅ Center แนวนอน */
+  min-height: 100vh;          /* ✅ ใช้ min-height แทน height */
+  padding: 0 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #fce4ec, #fff1f8);
+  box-sizing: border-box;
+}
+
+.memory-page h2 {
+  font-family: 'Prompt', sans-serif;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  margin-bottom: 30px;
+  color: #c2185b;
+}
+
+
+/* ✅ ปรับ grid ให้สมมาตร */
+.grid {
+    .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 100px); /* ✅ 6 columns */
+    grid-template-rows: repeat(3, 100px);     /* ✅ 3 rows */
+    gap: 16px;
+    justify-content: center;
+    align-content: center;
+    }
+
+}
+
+
+
+
+body.letter-page {
+  margin: 0;
+  font-family: 'Prompt', sans-serif;
+  background: linear-gradient(135deg, #fce4ec, #fff1f8);
+  color: #ad1457;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+
+.letter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: floatIn 1s ease-out;
+}
+
+.envelope {
+  width: clamp(200px, 30vw, 320px); /* ✅ ขยายแบบ responsive */
+  max-width: 100%;
+  cursor: pointer;
+  transition: opacity 0.6s ease, transform 0.3s;
+  animation: float 2s ease-in-out infinite;
+}
+
+
+
+.envelope:hover {
+  transform: scale(1.05);
+}
+
+.fade-out {
+  opacity: 0;
+  transform: scale(0.9);
+  pointer-events: none;
+}
+
+.click-hint {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #6d6d6d;
+}
+
+.letter-message {
+  margin-top: 30px;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #c2185b;
+  transition: opacity 0.5s;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes floatIn {
+  from { transform: translateY(40px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+
+/* ให้ letter popup อยู่กลางจอ */
+#letter-popup {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 240, 245, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+}
+
+/* ปิดซ่อนไว้ก่อน */
+.hidden {
+  display: none;
+}
+
+/* เพิ่ม animation ซองเข้ามา */
+@keyframes slide-in {
+  0% { transform: translateY(100vh); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+#letter-popup.show {
+  display: flex;
+  animation: slide-in 1s ease;
+}
